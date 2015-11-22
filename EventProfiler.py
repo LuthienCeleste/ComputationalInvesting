@@ -13,6 +13,9 @@ Created on Jan 16, 2013
 Modified on Nov 17, 2015 
 By Jose Antonio Dura Olmos
 contact: jadura@jadura.no-ip.org
+summary : Fixed error with substraction to get a market neutral plot.
+          Changed alpha of error bars from 0.1 to 0.6 because they were
+        hard to see with that alpha for some people.
 
 '''
 
@@ -85,7 +88,7 @@ def eventprofiler(df_events_arg, d_data, i_lookback=20, i_lookforward=20,
     if b_errorbars == True:
         plt.errorbar(li_time[i_lookback:], na_mean[i_lookback:],
                     yerr=na_std[i_lookback:], ecolor='#AAAAFF',
-                    alpha=0.1)
+                    alpha=0.6) #Changed alpha from 0.1 to 0.6 (Jose A Dura)
     plt.plot(li_time, na_mean, linewidth=3, label='mean', color='b')
     plt.xlim(-i_lookback - 1, i_lookforward + 1)
     if b_market_neutral == True:
